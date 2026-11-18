@@ -1,167 +1,226 @@
-# AlertaSP Mobile · CitizenTech
+# AlertaSP · CitizenTech
 
-Aplicativo Expo/React Native/TypeScript para consultar pontos de alagamento por região em São Paulo, compreender origem/data/status e guardar favoritas e relatos locais. **Protótipo demonstrativo: todos os pontos fornecidos são fictícios, sem dados em tempo real.**
+Aplicativo para ajudar pessoas que circulam por São Paulo a consultar pontos de alagamento, entender a origem e a atualização da informação e acompanhar regiões favoritas.
 
-## Ficha da CitizenTech
+Projeto da **Global Solution 2026.2 — FIAP · Mobile Development & IoT**, desenvolvido com **React Native, TypeScript, Expo e Expo Router**, com persistência em **SQLite**.
+
+> **Demonstração acadêmica:** os dados fornecidos são fictícios e identificados como mock. O aplicativo não oferece monitoramento em tempo real. Ausência de registros não significa que uma rua esteja segura.
+
+[Como executar](#como-executar) · [Ficha CitizenTech](#ficha-citizentech) · [Telas](#prints-das-telas) · [Vídeo](#vídeo-de-apresentação) · [Critérios de avaliação](#critérios-de-avaliação)
+
+## Equipe
+
+| Integrante | RM |
+|---|---|
+| Enzo Almeida | 556900 |
+| Gabriel Mello | 554421 |
+| Guilherme Moreira | 557290 |
+
+## Vídeo de apresentação
+
+**Link do vídeo final (até 3 minutos): a equipe adicionará aqui após a gravação.**
+
+<!-- Substitua a linha acima por: [Assistir à apresentação do AlertaSP](URL_DO_VIDEO) -->
+
+O [roteiro de 2min50s](docs/ANDROID-E-VIDEO.md#roteiro-de-vídeo-final--2min50s) orienta a demonstração da jornada no Android Emulator, incluindo consulta, fonte dos dados, favoritas, relato e persistência após encerrar e reabrir o app. Confira se o avaliador consegue abrir o link sem solicitar acesso.
+
+A [gravação complementar em Expo web](docs/evidencias/demo-web.webm) já está disponível no repositório. É uma captura automatizada, sem narração; não corresponde ao vídeo final da equipe nem comprova execução no Android.
+
+## Ficha CitizenTech
 
 | Campo | Definição |
 |---|---|
-| Nome | AlertaSP — CitizenTech |
-| Cidade e bairro | São Paulo/SP; recorte demonstrativo com Cambuci, Vila Matilde e outras regiões. O recorte final deve ser validado pela pesquisa da equipe. |
-| Cidadão beneficiado | Pessoas que se deslocam pela cidade e precisam compreender informações localizadas de alagamento, sem conhecimento técnico. |
-| Problema, em uma frase | É difícil encontrar informação localizada, atualizada e compreensível sobre pontos de alagamento antes de um deslocamento. |
-| Como funciona | Início → buscar via/região → conferir categoria, fonte e data → salvar região → consultar avisos. Opcionalmente, registrar um relato local não validado. |
-| O que cada parte faz | Mobile: navegação, consumo do mock e persistência SQLite. SOA: futura fonte por contrato, independente deste MVP. IoT: leitura simulada identificada, sem equipamento real ou integração implementada. |
-| Repositório | [enzoalmeiida/alertasp-mobile](https://github.com/enzoalmeiida/alertasp-mobile) |
-| Indicador de impacto | Proposta: medir tempo e taxa de sucesso para localizar uma via e explicar corretamente fonte/status/data. Meta de estudo: 4 de 5 participantes concluírem em até 60 segundos. **Meta proposta, não resultado medido.** |
-| ODS conectados | ODS 11, especialmente 11.5: apoiar o acesso a informações sobre riscos de desastres urbanos; ODS 13, especialmente 13.3: apoiar conscientização sobre eventos climáticos. O protótipo não comprova redução de danos. |
+| Nome da solução | AlertaSP — CitizenTech |
+| Cidade e bairros | São Paulo/SP, com exemplos demonstrativos em Cambuci, Vila Matilde e outras regiões da cidade. |
+| Cidadão beneficiado | Pessoas que se deslocam pela cidade e precisam consultar informações sobre alagamentos de forma simples, sem conhecimento técnico. |
+| Problema | É difícil encontrar informação localizada, atualizada e compreensível sobre pontos de alagamento antes de um deslocamento. |
+| Como funciona | O cidadão consulta o resumo inicial, busca uma via ou região, abre os detalhes para conferir status, fonte e horário e salva regiões favoritas para acompanhar avisos. Também pode registrar um relato local. |
+| Papel do Mobile | Oferecer a jornada de consulta, consumir o mock e salvar favoritas e relatos em SQLite. |
+| Papel da SOA | Possível fornecimento futuro de dados por API. Este aplicativo funciona de forma independente, usando o mock documentado. |
+| Papel do IoT | Representar uma leitura demonstrativa de sensor, identificada como simulada. Não há equipamento ou integração real implementados. |
+| Repositório | [github.com/enzoalmeiida/alertasp-mobile](https://github.com/enzoalmeiida/alertasp-mobile) |
+| Indicador de impacto proposto | Medir tempo e taxa de sucesso para localizar uma via e explicar corretamente fonte, status e data. Meta proposta: 4 de 5 participantes concluírem a tarefa em até 60 segundos. **Ainda não medido.** |
+| ODS relacionados | **ODS 11**, especialmente 11.5: acesso à informação sobre riscos de desastres urbanos; **ODS 13**, especialmente 13.3: conscientização sobre eventos climáticos. |
 
-Equipe:
+A Ficha descreve o escopo do protótipo. O recorte territorial e o indicador são propostas para validação com cidadãos; não há resultados de pesquisa de campo ou redução de danos comprovados.
 
-- Enzo Almeida — RM556900
-- Gabriel Mello — RM554421
-- Guilherme Moreira — RM557290
+## Jornada e funcionalidades
 
-A Ficha foi estruturada com o contexto fornecido pela equipe. Entrevistas, observações de campo e resultados de impacto **não foram inventados** e ainda precisam ser documentados pela equipe.
+1. **Início:** entender o resumo de ocorrências e identificar que os dados são demonstrativos.
+2. **Pontos:** buscar por via/bairro e filtrar por região, sem depender de localização do aparelho.
+3. **Detalhe:** conferir local, categoria, fonte e horário de atualização, com aviso quando o dado estiver antigo.
+4. **Categorias:** distinguir ativa no cenário, histórico, relato pendente e leitura simulada de sensor.
+5. **Favoritas:** salvar regiões e consultar seus avisos dentro do aplicativo.
+6. **Relatar:** registrar um exemplo fictício de alagamento ou boca de lobo obstruída, consultar o registro salvo e excluí-lo com confirmação.
 
-## Requisitos e rubrica
+A consulta principal usa uma **lista pesquisável**. Não há mapa, solicitação de GPS ou chave de serviço cartográfico. Os avisos são exibidos no app; não são notificações push. Relatos ficam no dispositivo e não são enviados a autoridades.
 
-Referência: PDF **GS CitizenTech — 3ES Fev — FIAP 2026**, página 34; Ficha e combinados nas páginas 20–21. O PDF exige Expo, React Native/TypeScript, Expo Router, API **ou mock**, banco e acessibilidade. Não especifica banco local/remoto nem pesos individuais. A equipe confirmou que esse é o único enunciado disponível. SQLite local atende ao pedido de banco conforme esse texto; não há exigência expressa de banco remoto, mapa ou integração SOA/IoT. Não foram atribuídos pesos não informados.
+| Rota Expo Router | Tela |
+|---|---|
+| `/` | Início |
+| `/pontos` | Consulta e categorias |
+| `/ocorrencia/[id]` | Detalhe da ocorrência ou relato |
+| `/favoritas` | Regiões favoritas e avisos |
+| `/relatar` | Formulário de relato |
+| `/sobre` | Fontes, privacidade e cenários de demonstração |
 
-| Critério | Implementação e evidência | Limite da verificação |
-|---|---|---|
-| Telas e navegação | Três abas, detalhes por ID, formulário, Sobre e rota inexistente; [wireframes e matriz](docs/PLANO.md) | Navegação web testada; gestos/back nativos pendentes |
-| Consumo de dados | Serviço assíncrono com mock validado, pesquisa, filtros, loading, vazio, erro/retry, dado antigo | Sem API oficial; mock não é tempo real |
-| Banco de dados | SQLite real, favoritas e relatos, migração, SQL parametrizado, inserir/consultar/excluir/reabrir | Persistência testada em Node/SQLite e Expo web; Android pendente |
-| Acessibilidade | Texto + ícone + cor, contraste, rótulos, alvos de 48dp+, erros claros, fonte escalável | Axe web e tela estreita testados; TalkBack/fonte ampliada Android pendentes |
-| Aderência ao problema | Consulta por via/região, data e fonte; histórico/pendente/sensor separados | Validação com cidadãos ainda não realizada |
-| Documentação | Ficha, setup, arquitetura, fontes, limites, [prints](#prints-das-telas), [vídeo](#vídeo) e [prompts](prompts.md) | Completar evidências Android e entrega Teams |
+O [plano do produto](docs/PLANO.md) reúne wireframes e a matriz requisito → tela/fluxo → dado → evidência.
 
-Não há pesos ou nota estimados. Implementar um item não garante sua avaliação sem conferir a tarefa completa.
+## Como executar
 
-## Rodar no Android Emulator do computador
+### Requisitos
 
-Versões: Node **24.22.1** (`.nvmrc`), npm **11.9.0**, Expo **58.0.26**, React Native **0.88.1**, React **19.3.0**, Expo Router **58.0.32**, expo-sqlite **58.0.18**, TypeScript **6.0.3**. O lockfile fixa as dependências efetivamente instaladas.
+- Git, **Node.js 24.22.1** (versão registrada em `.nvmrc`) e **npm 11.9.0**.
+- Para Android: Android Studio, Android SDK Platform Tools e um dispositivo virtual (AVD).
+- **Expo Go compatível com o SDK 58**; consulte [expo.dev/go](https://expo.dev/go).
 
-1. Instale Node/npm e Android Studio com SDK Platform Tools e um AVD.
-2. Abra o emulador no Device Manager. Confirme que `adb devices` o lista como `device`.
-3. Na raiz do repositório:
+Versões de referência: Expo **58.0.26**, React Native **0.88.1**, React **19.3.0**, Expo Router **58.0.32**, expo-sqlite **58.0.18** e TypeScript **6.0.3**. O `package-lock.json` registra as versões instaladas.
+
+### Android Emulator
 
 ```bash
+git clone https://github.com/enzoalmeiida/alertasp-mobile.git
+cd alertasp-mobile
 npm ci
+```
+
+Abra o AVD pelo **Device Manager** do Android Studio e aguarde a inicialização. Confirme a conexão:
+
+```bash
+adb devices
+```
+
+Com o emulador listado como `device`, execute na pasta do projeto:
+
+```bash
 npm run android
 ```
 
-Use **Expo Go compatível com o SDK 58**; confira [expo.dev/go](https://expo.dev/go). Não troque versões de dependências para encaixar um Expo Go antigo. Se necessário, a equipe pode usar uma development build, com a toolchain Android correspondente. Veja o [guia Android e checklist manual](docs/ANDROID-E-VIDEO.md).
+Se o Expo Go disponível não suportar o SDK do projeto, consulte as orientações de development build no [guia Android](docs/ANDROID-E-VIDEO.md). Esse guia também contém o checklist de teclado, navegação, TalkBack e persistência.
 
-Não há backend, conta, chave, permissão de localização ou variável de aplicação obrigatória. Consultas são manuais. O mock funciona sem internet após carregar o app; instalação de pacotes e conexão com o Metro ainda exigem acesso apropriado.
+**Não é necessário configurar backend, conta, chave de API ou arquivo `.env`.** Instalar dependências requer internet. O mock é local e não precisa de API externa; durante o desenvolvimento, o app precisa conseguir acessar o servidor Metro.
 
-Para web:
+### Navegador
 
 ```bash
 npm run web
 ```
 
-SQLite web requer WebAssembly e os headers COOP/COEP já configurados em `metro.config.js`. Uma futura hospedagem também precisa desses headers; abrir o HTML exportado diretamente como arquivo não basta.
+A versão web usa SQLite com WebAssembly. Os headers COOP/COEP necessários estão configurados em `metro.config.js`; uma hospedagem da exportação web também precisa fornecê-los. Abrir o HTML diretamente como arquivo não é suficiente.
 
-## Jornada e rotas
+## Dados e banco de dados
 
-| Rota | Finalidade |
+### Consumo do mock
+
+O serviço em `src/services/occurrences.ts` consome de forma assíncrona os **seis exemplos fictícios** de [src/data/occurrences.json](src/data/occurrences.json), valida os dados e oferece estados de carregamento, vazio e erro com nova tentativa.
+
+As datas dos exemplos pertencem ao período de **10 a 17/11/2026** e não são renovadas artificialmente ao atualizar a tela. O app identifica informação desatualizada. Em **Sobre**, é possível selecionar os cenários normal, sem dados, falha e base antiga para demonstrar esses estados.
+
+| Categoria | Significado no protótipo |
 |---|---|
-| `/` | Entender o resumo e acessar a consulta |
-| `/pontos` | Buscar via/bairro, filtrar região e alternar Ativas/Histórico/Relatos/Sensor |
-| `/ocorrencia/[id]` | Conferir local, status, fonte e data; favoritar região; excluir relato próprio com confirmação |
-| `/favoritas` | Salvar/remover regiões, consultar avisos internos e relatos locais |
-| `/relatar` | Validar e inserir relato fictício, com confirmação de gravação |
-| `/sobre` | Entender fonte/limites/privacidade e demonstrar cenários normal, vazio, erro e antigo |
+| Ativa | Ocorrência ativa **no cenário fictício**, não confirmação atual da situação da via |
+| Histórico | Ocorrência inativa do mock, separada das ativas |
+| Relato | Informação pendente e não validada; pode ser exemplo do mock ou registro local |
+| Sensor | Leitura simulada, sem dispositivo IoT conectado |
 
-A lista é a consulta principal e a alternativa ao mapa. **Não há mapa geográfico, GPS ou cobrança de serviço cartográfico.** O enunciado disponível não exige mapa; a lista atende à jornada definida. Um mapa futuro exigiria validar biblioteca, provedor e condições de chave/custo.
+Não há consumo de dados oficiais do CGE ou GeoSampa. Fonte, categoria e atualização aparecem nos detalhes para que o cidadão compreenda os limites da informação.
 
-## Dados, persistência e privacidade
+### Persistência SQLite
 
-- Fonte: `src/data/occurrences.json`, seis exemplos fictícios, período de **10 a 17/11/2026**. As datas não são atualizadas artificialmente quando a consulta é refeita.
-- Nenhum dado é oficial do CGE/GeoSampa. Não presumimos endpoint não documentado.
-- “Ativa” significa ativa no cenário; histórico é inativo; relato é pendente/não validado; sensor é simulado.
-- Banco `alertasp.db`: tabelas `favorites` e `reports`, migração versionada, validação e consultas parametrizadas. Dados ficam neste aparelho/navegador, sem envio.
-- A aplicação não coleta GPS, identidade, contatos ou fotos. Use exemplos fictícios no formulário. Avisos são consultas internas, não notificações push.
-- Não encontrar registros **não significa rua segura**. O app não substitui orientações oficiais e não é canal de emergência.
+O banco local **`alertasp.db`**, acessado por `expo-sqlite`, possui as tabelas:
 
-Leia [dados e arquitetura](docs/DADOS-E-ARQUITETURA.md) para esquema, fluxo, fontes técnicas, custos de um eventual mapa e limites.
+| Tabela | Informação persistida |
+|---|---|
+| `favorites` | Região favorita e data de inclusão |
+| `reports` | Região, tipo, local, descrição e data do relato |
 
-Para demonstrar banco: salve uma região, crie um relato, consulte ambos, encerre o app e reabra o mesmo projeto. As informações devem continuar disponíveis. Não desinstale nem limpe dados: isso apaga o banco. [Roteiro detalhado](docs/ANDROID-E-VIDEO.md).
+A implementação utiliza migração versionada, validação e consultas parametrizadas. Não coleta identidade, contatos, fotos ou localização do aparelho. Use apenas dados fictícios ao demonstrar o formulário.
 
-## Organização e testes
+**Como demonstrar a persistência:** salve uma região, registre um relato e consulte ambos. Encerre o aplicativo e reabra o mesmo projeto: a favorita e o relato devem permanecer. Depois, exclua o relato e confira a remoção. Não desinstale nem limpe os dados, pois essas ações apagam o banco. O [guia Android](docs/ANDROID-E-VIDEO.md#checklist-com-evidências) explica como encerrar o Expo Go para executar a verificação.
+
+O [documento de dados e arquitetura](docs/DADOS-E-ARQUITETURA.md) detalha esquema, fontes técnicas e decisões de implementação.
+
+## Acessibilidade
+
+- Status comunicados por **texto, ícone e cor**, sem depender apenas da cor.
+- Rótulos acessíveis em controles, indicação da região selecionada e mensagens de erro por campo.
+- Alvos de toque de pelo menos 48 dp, texto escalável e telas roláveis.
+- Estados claros de carregamento, ausência de resultados, erro e dado antigo.
+- Consulta manual disponível sem solicitar geolocalização.
+
+As verificações automatizadas web incluem axe com regras WCAG 2 A/AA e 2.1 AA em seis telas e viewport estreito de 320 × 640. **TalkBack, fonte ampliada e interação nativa ainda precisam de validação no Android**; testes web não substituem essa conferência.
+
+## Prints das telas
+
+Capturas reais do aplicativo em **Expo web/Chromium, viewport 390 × 844**.
+
+| Início | Consulta por região | Detalhe |
+|---|---|---|
+| ![Tela inicial com resumo e aviso de demonstração](docs/evidencias/inicio.png) | ![Lista de pontos fictícios filtrados por região](docs/evidencias/pontos.png) | ![Detalhe com categoria, fonte e atualização](docs/evidencias/detalhe.png) |
+
+| Favoritas | Formulário de relato | Persistência |
+|---|---|---|
+| ![Região Zona Leste salva nas favoritas](docs/evidencias/favoritas.png) | ![Formulário preenchido com dados fictícios](docs/evidencias/relato.png) | ![Relato mantido no banco após recarregar a aplicação web](docs/evidencias/persistencia-relato.png) |
+
+## Critérios de avaliação
+
+Referência: página 34 do enunciado **GS CitizenTech — 3ES Fev — FIAP 2026**. São seis critérios, sem pesos individuais informados. O texto permite API **ou mock** e exige banco de dados sem determinar modalidade local ou remota. Este projeto utiliza mock e SQLite local; o enunciado disponível não exige mapa nem integração real com SOA/IoT.
+
+| Critério | Implementação | Evidência |
+|---|---|---|
+| Telas e navegação | Abas, busca, categorias, detalhe, favoritas e formulário com Expo Router | Prints acima e testes da jornada web |
+| Consumo de dados | Serviço assíncrono, mock identificado, fonte/data e tratamento dos estados da consulta | Arquivo de dados, tela Sobre e testes de cenários |
+| Banco de dados | Inserção, consulta e exclusão em SQLite; manutenção após reabertura | Testes SQLite e persistência web; roteiro para repetir no Android |
+| Acessibilidade | Rótulos, texto/ícone/cor, alvos de toque e mensagens claras | Verificações axe e tela estreita; checklist Android |
+| Aderência ao problema | Consulta por via/região com fonte, status e atualização; favoritas e relatos | Ficha CitizenTech e jornada implementada |
+| Documentação | Ficha, execução, arquitetura, prints e roteiro de apresentação | Este README, documentos vinculados e campo reservado ao vídeo final |
+
+## Organização do código e testes
 
 ```text
-src/app/          Rotas Expo Router
-src/components/   Componentes acessíveis e estilos compartilhados
+src/app/          Telas e navegação Expo Router
+src/components/   Componentes e estilos compartilhados
 src/domain/       Tipos, filtros, datas e validação
-src/data/         Mock identificado
-src/services/     Adaptador assíncrono de consumo
-src/storage/      SQLite, migração e repositório
-src/state/        Coordenação de consultas e persistência
-tests/            Domínio, SQLite real e testes de navegador
-docs/             Plano, evidências, arquitetura e roteiro Android/vídeo
+src/data/         Dados fictícios identificados
+src/services/     Serviço de consumo do mock
+src/storage/      SQLite, migração e repositório de dados
+src/state/        Estado de consultas e persistência
+tests/            Testes de domínio, SQLite e navegador
+docs/             Plano, arquitetura, validação e evidências
 ```
+
+Após `npm ci`, execute:
 
 ```bash
 npm run typecheck
 npm run lint
 npm test
-npm run build:web -- --max-workers 2
-npx expo export --platform all --output-dir dist --max-workers 2
 ```
 
-O último comando gera bundles de web, Android e iOS; **não gera APK/IPA nem prova execução em dispositivo**.
-
-Testes de navegador (com o Metro iniciado ou iniciado automaticamente pelo teste):
+Para os testes de navegador, instale o Chromium do Playwright. A configuração inicia o servidor web quando necessário:
 
 ```bash
 npx playwright install chromium
 npm run test:e2e
 ```
 
-Os seis testes web cobrem também região selecionada no nome acessível e relatos locais durante erro/retry do mock. A suíte cobre busca/categorias/detalhe, persistência SQLite após fechar e reabrir página, validação/exclusão, erro/vazio/antiguidade, checks WCAG A/AA nas seis telas e viewport estreito. São testes **web**, não Android. Os testes de Node fecham/reabrem um arquivo SQLite real e verificam inclusive textos com apóstrofos. [Resultados e limites](docs/VALIDACAO.md).
-
-## Prints das telas
-
-Capturas reais de **Expo web em Chromium, viewport 390 × 844**. Não são capturas do Android Emulator.
-
-| Início | Consulta por região | Detalhe |
-|---|---|---|
-| ![Início web com resumo e aviso de demonstração](docs/evidencias/inicio.png) | ![Lista web de pontos fictícios por região](docs/evidencias/pontos.png) | ![Detalhe web com categoria e origem](docs/evidencias/detalhe.png) |
-
-| Favoritas | Formulário de relato | Persistência após recarregar |
-|---|---|---|
-| ![Favoritas web com Zona Leste salva](docs/evidencias/favoritas.png) | ![Formulário web com dados fictícios](docs/evidencias/relato.png) | ![Relato web mantido no banco após recarregar](docs/evidencias/persistencia-relato.png) |
-
-## Vídeo
-
-[Assistir/baixar a demonstração Expo web](docs/evidencias/demo-web.webm) — gravação automatizada, sem narração e com menos de 3 minutos. Mostra o aplicativo real em execução, navegação, categorias, favoritas, relato e manutenção após recarregamento web. **Não é uma gravação Android e não comprova reinício nativo.**
-
-Para reproduzir a captura, deixe o Metro em execução, instale os componentes do Playwright com `npx playwright install chromium ffmpeg` e execute `npm run capture:demo`. O script gera capturas de uma sessão isolada com dados fictícios.
-
-A equipe deve completar a validação no Android e preferencialmente apresentar uma gravação narrada no emulador. [Roteiro final de 2min50s e checklist](docs/ANDROID-E-VIDEO.md). Confirme que o professor consegue abrir o repositório e o vídeo.
-
-## Ambiente Codex na nuvem
-
-Cada tarefa já é isolada: use o checkout existente, sem criar worktrees. Cache e SQLite web precisam de diretórios graváveis; o modo offline abaixo dispensa chamadas à API do Expo, mas não o acesso ao registry npm.
+Para exportar a versão web:
 
 ```bash
-cd /workspace/alertasp-mobile
-export npm_config_cache=/workspace/.cache/npm
-export XDG_CACHE_HOME=/workspace/.cache
-export EXPO_NO_TELEMETRY=1
-export EXPO_OFFLINE=1
-npm ci --engine-strict --no-audit --no-fund
-CI=0 BROWSER=none npm run web -- --localhost --port 8081 --max-workers 2
+npm run build:web
 ```
 
-Nesta imagem há Chromium do sistema. Para testes, use `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium npm run test:e2e`. O runtime cloud não contém Android SDK/AVD/KVM; não foi instalado um emulador sem capacidade adequada de executá-lo.
+**Resultados registrados:** 8 testes de domínio/SQLite e 6 testes de navegador aprovados, além de lint, TypeScript e exportação dos bundles web/Android/iOS. A exportação não gera APK/IPA nem comprova execução nativa. Consulte o [relatório de validação](docs/VALIDACAO.md) e o [resultado dos testes web](docs/evidencias/testes-web.json).
 
-## O que ainda impede declarar a entrega completa
+O uso de IA no desenvolvimento está documentado em [prompts.md](prompts.md).
 
-- Executar a jornada no **Android Emulator**, incluindo encerrar/reabrir, teclado, botão voltar, TalkBack e fonte grande; registrar versão e resultados.
-- Completar evidências Android e conferir o link do vídeo com acesso do avaliador.
-- Validar a Ficha/recorte com a pesquisa real da equipe e medir o indicador proposto, sem fabricar entrevistas ou resultados.
-- Um integrante enviar o link no **Teams até 19/11/2026 às 23h55, horário de São Paulo**. O envio não foi realizado por esta automação.
+## Checklist de entrega
+
+- [x] Código organizado no GitHub, com React Native, TypeScript, Expo e Expo Router.
+- [x] Consumo de mock documentado e persistência SQLite implementados.
+- [x] README com Ficha CitizenTech, integrantes, instruções e prints.
+- [x] Testes automatizados e limites da validação documentados.
+- [ ] Executar o [checklist Android](docs/ANDROID-E-VIDEO.md) e registrar os resultados reais, incluindo persistência após encerramento e acessibilidade.
+- [ ] Adicionar o link do vídeo final de até 3 minutos na seção [Vídeo de apresentação](#vídeo-de-apresentação).
+- [ ] Conferir o acesso do avaliador ao repositório e ao vídeo.
+- [ ] Um integrante enviar o link do repositório no **Teams até 19/11/2026 às 23h55, horário de São Paulo**.
