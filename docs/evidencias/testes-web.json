@@ -1,0 +1,29 @@
+{
+  "platform": "Expo web / Chromium; não Android",
+  "stats": {
+    "startTime": "2026-11-18T01:22:26.443Z",
+    "duration": 27314.662,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "name": "main journey: source, category separation, manual search and invalid detail",
+      "passed": true
+    },
+    {
+      "name": "SQLite persists favorites and reports after closing and reopening the page",
+      "passed": true
+    },
+    {
+      "name": "empty, error, retry, recovery and stale data are explicit",
+      "passed": true
+    },
+    {
+      "name": "WCAG A/AA browser checks and narrow viewport on all main screens",
+      "passed": true
+    }
+  ]
+}

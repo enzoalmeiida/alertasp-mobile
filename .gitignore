@@ -39,3 +39,8 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# Automated browser test outputs
+/test-results/
+/playwright-report/
+/docs/evidencias/raw-video/
