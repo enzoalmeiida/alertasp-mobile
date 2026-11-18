@@ -24,3 +24,7 @@ Este registro contém trechos e uma síntese do pedido, não uma transcrição i
 - Limite declarado: cloud sem Android Emulator; evidências web não comprovam execução Android.
 
 Revisão humana necessária: cada integrante deve executar o app, ler os módulos, explicar um fluxo completo, validar no Android e registrar eventuais correções. Indicadores de impacto, entrevistas e nota máxima não foram fabricados.
+
+## Correção após revisão
+
+Pedido humano: “arrume todos os problemas que precisam ser feitos, caso precise de mim avise”. A equipe confirmou que a página 34 mostrada é o único enunciado disponível. Foram corrigidos consulta local durante falha do mock e rótulo/estado acessível do filtro, com testes de regressão. A validação Android permanece separada.

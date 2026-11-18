@@ -52,7 +52,7 @@ O arquivo `docs/evidencias/demo-web.webm`, quando gerado pelo script do reposit�
 
 ## Antes de enviar
 
-- Conferir a rubrica completa na tarefa do Teams: pesos, banco local/remoto e eventual exigência adicional de mapa/integração. O PDF não resolve essas perguntas.
+- Usar o enunciado da página 34 como referência, conforme confirmado pela equipe. Ele permite mock e pede banco sem exigir modalidade remota ou mapa. Não inventar pesos individuais.
 - Completar os passos Android e documentar falhas encontradas; não afirmar que o checklist passou sem execução.
 - Confirmar Ficha e recorte territorial com a pesquisa real da equipe. Entrevistas e indicadores ainda não foram medidos pelo app.
 - Um integrante envia o link do repositório no Teams até **19/11/2026, 23h55 (horário de São Paulo)**. Esta automação não realiza o envio.

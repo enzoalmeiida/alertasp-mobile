@@ -89,3 +89,54 @@ test('WCAG A/AA browser checks and narrow viewport on all main screens', async (
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
   }
 });
+
+test('region filter exposes its selected value and expansion state accessibly', async ({ page }) => {
+  await openPoints(page);
+  const allRegions = page.getByRole('button', { name: 'Região: Todas. Filtrar por região', exact: true });
+  await expect(allRegions).toHaveAttribute('aria-expanded', 'false');
+  await allRegions.click();
+  await expect(allRegions).toHaveAttribute('aria-expanded', 'true');
+  await page.getByRole('button', { name: 'Centro', exact: true }).click();
+  const center = page.getByRole('button', { name: 'Região: Centro. Filtrar por região', exact: true });
+  await expect(center).toBeVisible();
+  await expect(center).toHaveAttribute('aria-expanded', 'false');
+  await expect(page.getByRole('button', { name: /Ver detalhes de Av. do Estado/ })).toBeVisible();
+  await expect(page.getByRole('button', { name: /Ver detalhes de Av. Aricanduva/ })).toHaveCount(0);
+  await center.click();
+  await page.getByRole('button', { name: 'Todas', exact: true }).click();
+  await expect(allRegions).toBeVisible();
+  await expect(page.getByRole('button', { name: /Ver detalhes de Av. Aricanduva/ })).toBeVisible();
+});
+
+test('local reports remain searchable when the mock fails and during retry', async ({ page }) => {
+  await page.goto('/relatar');
+  await page.getByRole('button', { name: 'Alagamento', exact: true }).click();
+  await page.getByRole('button', { name: 'Centro', exact: true }).click();
+  await page.getByRole('textbox', { name: 'Local aproximado', exact: true }).fill('Praça fictícia independente');
+  await page.getByRole('textbox', { name: 'Descrição da situação', exact: true }).fill('Exemplo fictício salvo para consulta local durante falha.');
+  const save = page.getByRole('button', { name: 'Salvar neste aparelho', exact: true });
+  await expect(save).toBeEnabled();
+  await save.click();
+  await page.getByRole('button', { name: 'Ir para favoritas', exact: true }).click();
+  await page.getByRole('button', { name: 'Sobre o AlertaSP e os dados', exact: true }).click();
+  await page.getByRole('button', { name: 'Falha de consulta', exact: true }).click();
+  await page.getByRole('button', { name: 'Consultar cenário selecionado', exact: true }).click();
+  await page.getByRole('button', { name: 'Relatos', exact: true }).click();
+  const report = page.getByRole('button', { name: /Ver detalhes de Praça fictícia independente/ });
+  const error = page.getByText('Não foi possível consultar', { exact: true }).filter({ visible: true });
+  await expect(error).toBeVisible();
+  await expect(report).toBeVisible();
+  await expect(page.getByText('Consulta parcial · relatos deste aparelho', { exact: true })).toBeVisible();
+  await expect(page.getByRole('button', { name: /Ver detalhes de Praça de exemplo/ })).toHaveCount(0);
+  await page.getByRole('button', { name: 'Tentar novamente', exact: true }).click();
+  await expect(page.getByText('Consultando o mock…', { exact: true }).filter({ visible: true })).toBeVisible();
+  await expect(report).toBeVisible();
+  await expect(error).toBeVisible();
+  const search = page.getByRole('textbox', { name: 'Buscar via ou bairro', exact: true });
+  await search.fill('sem correspondência');
+  await expect(page.getByText('Nenhum relato local nesta consulta', { exact: true })).toBeVisible();
+  await search.fill('independente');
+  await expect(report).toBeVisible();
+  await report.click();
+  await expect(page.getByText('Relato salvo somente neste aparelho', { exact: true })).toBeVisible();
+});

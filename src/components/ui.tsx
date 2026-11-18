@@ -31,7 +31,7 @@ export function Button({ title, onPress, secondary = false, danger = false, disa
   title: string; onPress: () => void; secondary?: boolean; danger?: boolean; disabled?: boolean; busy?: boolean; icon?: IconName; label?: string; expanded?: boolean;
 }) {
   const foreground = secondary ? (danger ? colors.red : colors.teal) : colors.white;
-  return <Pressable accessibilityRole="button" accessibilityLabel={label ?? title} accessibilityState={{ disabled: disabled || busy, busy, expanded }} disabled={disabled || busy} onPress={onPress}
+  return <Pressable accessibilityRole="button" accessibilityLabel={label ?? title} accessibilityState={{ disabled: disabled || busy, busy, expanded }} aria-expanded={expanded} disabled={disabled || busy} onPress={onPress}
     style={({ pressed }) => [s.button, secondary ? s.secondary : s.primary, danger && !secondary && { backgroundColor: colors.red }, (disabled || busy) && { opacity: 0.55 }, pressed && { opacity: 0.8 }]}>
     {busy ? <ActivityIndicator accessibilityLabel="Processando solicitação" color={foreground} /> : icon && <Icon name={icon} color={foreground} size={20} />}
     <AppText style={[s.buttonText, { color: foreground }]}>{title}</AppText>

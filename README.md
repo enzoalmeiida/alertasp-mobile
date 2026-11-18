@@ -26,7 +26,7 @@ A Ficha foi estruturada com o contexto fornecido pela equipe. Entrevistas, obser
 
 ## Requisitos e rubrica
 
-Referência: PDF **GS CitizenTech — 3ES Fev — FIAP 2026**, página 34; Ficha e combinados nas páginas 20–21. O PDF exige Expo, React Native/TypeScript, Expo Router, API **ou mock**, banco e acessibilidade. Não especifica banco local/remoto nem pesos individuais. **A rubrica completa do Teams não foi fornecida**; confirmar com o professor se SQLite local é aceito e se há exigências adicionais.
+Referência: PDF **GS CitizenTech — 3ES Fev — FIAP 2026**, página 34; Ficha e combinados nas páginas 20–21. O PDF exige Expo, React Native/TypeScript, Expo Router, API **ou mock**, banco e acessibilidade. Não especifica banco local/remoto nem pesos individuais. A equipe confirmou que esse é o único enunciado disponível. SQLite local atende ao pedido de banco conforme esse texto; não há exigência expressa de banco remoto, mapa ou integração SOA/IoT. Não foram atribuídos pesos não informados.
 
 | Critério | Implementação e evidência | Limite da verificação |
 |---|---|---|
@@ -35,7 +35,7 @@ Referência: PDF **GS CitizenTech — 3ES Fev — FIAP 2026**, página 34; Ficha
 | Banco de dados | SQLite real, favoritas e relatos, migração, SQL parametrizado, inserir/consultar/excluir/reabrir | Persistência testada em Node/SQLite e Expo web; Android pendente |
 | Acessibilidade | Texto + ícone + cor, contraste, rótulos, alvos de 48dp+, erros claros, fonte escalável | Axe web e tela estreita testados; TalkBack/fonte ampliada Android pendentes |
 | Aderência ao problema | Consulta por via/região, data e fonte; histórico/pendente/sensor separados | Validação com cidadãos ainda não realizada |
-| Documentação | Ficha, setup, arquitetura, fontes, limites, [prints](#prints-das-telas), [vídeo](#vídeo) e [prompts](prompts.md) | Conferir rubrica, completar evidências Android e entrega Teams |
+| Documentação | Ficha, setup, arquitetura, fontes, limites, [prints](#prints-das-telas), [vídeo](#vídeo) e [prompts](prompts.md) | Completar evidências Android e entrega Teams |
 
 Não há pesos ou nota estimados. Implementar um item não garante sua avaliação sem conferir a tarefa completa.
 
@@ -75,7 +75,7 @@ SQLite web requer WebAssembly e os headers COOP/COEP já configurados em `metro.
 | `/relatar` | Validar e inserir relato fictício, com confirmação de gravação |
 | `/sobre` | Entender fonte/limites/privacidade e demonstrar cenários normal, vazio, erro e antigo |
 
-A lista é a consulta principal e a alternativa ao mapa. **Não há mapa geográfico, GPS ou cobrança de serviço cartográfico.** Se a rubrica completa exigir mapa, esse requisito ainda precisa ser implementado com biblioteca/provedor compatíveis e condições de chave/custo verificadas.
+A lista é a consulta principal e a alternativa ao mapa. **Não há mapa geográfico, GPS ou cobrança de serviço cartográfico.** O enunciado disponível não exige mapa; a lista atende à jornada definida. Um mapa futuro exigiria validar biblioteca, provedor e condições de chave/custo.
 
 ## Dados, persistência e privacidade
 
@@ -121,7 +121,7 @@ npx playwright install chromium
 npm run test:e2e
 ```
 
-A suíte cobre busca/categorias/detalhe, persistência SQLite após fechar e reabrir página, validação/exclusão, erro/vazio/antiguidade, checks WCAG A/AA nas seis telas e viewport estreito. São testes **web**, não Android. Os testes de Node fecham/reabrem um arquivo SQLite real e verificam inclusive textos com apóstrofos. [Resultados e limites](docs/VALIDACAO.md).
+Os seis testes web cobrem também região selecionada no nome acessível e relatos locais durante erro/retry do mock. A suíte cobre busca/categorias/detalhe, persistência SQLite após fechar e reabrir página, validação/exclusão, erro/vazio/antiguidade, checks WCAG A/AA nas seis telas e viewport estreito. São testes **web**, não Android. Os testes de Node fecham/reabrem um arquivo SQLite real e verificam inclusive textos com apóstrofos. [Resultados e limites](docs/VALIDACAO.md).
 
 ## Prints das telas
 
@@ -161,7 +161,6 @@ Nesta imagem há Chromium do sistema. Para testes, use `PLAYWRIGHT_CHROMIUM_EXEC
 
 ## O que ainda impede declarar a entrega completa
 
-- Conferir a rubrica do Teams: aceitação de SQLite local e eventual requisito adicional de mapa/integração; não há pesos individuais no PDF.
 - Executar a jornada no **Android Emulator**, incluindo encerrar/reabrir, teclado, botão voltar, TalkBack e fonte grande; registrar versão e resultados.
 - Completar evidências Android e conferir o link do vídeo com acesso do avaliador.
 - Validar a Ficha/recorte com a pesquisa real da equipe e medir o indicador proposto, sem fabricar entrevistas ou resultados.

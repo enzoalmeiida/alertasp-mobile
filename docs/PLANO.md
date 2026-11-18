@@ -1,6 +1,6 @@
 # Plano de produto e evidências — antes da implementação
 
-Base: PDF FIAP CitizenTech 2026.2, página 34 (Mobile), páginas 20–21 (Ficha e combinados). O PDF permite API **ou mock**, exige banco, mas não especifica local/remoto nem pesos. A rubrica completa do Teams não foi fornecida. SQLite local é a decisão técnica deste MVP, sujeita à confirmação do professor.
+Base: PDF FIAP CitizenTech 2026.2, página 34 (Mobile), páginas 20–21 (Ficha e combinados). O PDF permite API **ou mock**, exige banco, mas não especifica local/remoto nem pesos. A equipe confirmou posteriormente que esta página é o único enunciado disponível. SQLite local é a implementação escolhida para atender ao requisito de banco; não há exigência expressa de banco remoto.
 
 ## Jornada escolhida
 
@@ -70,6 +70,6 @@ Expo Router: `src/app/(tabs)/index.tsx`, `pontos.tsx`, `favoritas.tsx`; `src/app
 
 ## Decisões de escopo
 
-Lista pesquisável é o fluxo principal e a alternativa de contingência ao mapa. Não instalar mapa, não solicitar localização, não assumir gratuidade de Google Maps. Mapa geográfico, push, autenticação, backend, sensores reais e integração SOA ficam fora deste MVP. Caso o Teams exija mapa, a seleção de biblioteca e condições de chave/cobrança deverá ser validada antes da implementação. Avisos são consultas dentro do app, não notificações push.
+Lista pesquisável é o fluxo principal e a alternativa de contingência ao mapa. Não instalar mapa, não solicitar localização, não assumir gratuidade de Google Maps. Mapa geográfico, push, autenticação, backend, sensores reais e integração SOA ficam fora deste MVP. O enunciado disponível não exige mapa. Uma inclusão futura dependeria de validar biblioteca e condições de chave/cobrança. Avisos são consultas dentro do app, não notificações push.
 
 O ambiente cloud permite navegador e bundles, mas não contém Android SDK/emulador/KVM. Prints e vídeo produzidos aqui serão rotulados **Expo web**, e não apresentados como Android. A verificação no Android Emulator da equipe continua obrigatória para comprovar a preferência de ambiente e os testes nativos.

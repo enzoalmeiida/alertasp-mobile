@@ -46,7 +46,7 @@ Testes unitários usam SQLite real via `node:sqlite` e o mesmo repositório/migr
 
 O MVP usa **lista pesquisável**, aceita pela jornada “mapa/lista” indicada pela equipe. A página 34 não exige mapa. Não há biblioteca cartográfica, permissão de localização ou chave de API; não se assume gratuidade de Google Maps. A lista também funciona como alternativa caso um mapa futuro falhe.
 
-Se a rubrica do Teams exigir mapa geográfico, considerar `react-native-maps` somente após conferir a compatibilidade com o SDK 58 e o binário escolhido. O provedor Google no Android pode exigir chave, ativação de SDK, projeto de faturamento e restrição por pacote/assinatura; preços/cotas precisam ser confirmados na conta e documentação vigentes. Isso é trabalho adicional não implementado. Exibir marcadores fornecidos pela base não requer acesso ao GPS do usuário; “perto de mim” exigiria finalidade explícita, consentimento e alternativa manual.
+Para uma expansão futura com mapa geográfico, considerar `react-native-maps` somente após conferir a compatibilidade com o SDK 58 e o binário escolhido. O provedor Google no Android pode exigir chave, ativação de SDK, projeto de faturamento e restrição por pacote/assinatura; preços/cotas precisam ser confirmados na conta e documentação vigentes. Isso é trabalho adicional não implementado. Exibir marcadores fornecidos pela base não requer acesso ao GPS do usuário; “perto de mim” exigiria finalidade explícita, consentimento e alternativa manual.
 
 ## Acessibilidade e cuidado com dados
 

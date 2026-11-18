@@ -1,9 +1,9 @@
 {
   "platform": "Expo web / Chromium; não Android",
   "stats": {
-    "startTime": "2026-11-18T01:22:26.443Z",
-    "duration": 27314.662,
-    "expected": 4,
+    "startTime": "2026-11-18T02:28:59.261Z",
+    "duration": 37980.854,
+    "expected": 6,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
@@ -23,6 +23,14 @@
     },
     {
       "name": "WCAG A/AA browser checks and narrow viewport on all main screens",
+      "passed": true
+    },
+    {
+      "name": "region filter exposes its selected value and expansion state accessibly",
+      "passed": true
+    },
+    {
+      "name": "local reports remain searchable when the mock fails and during retry",
       "passed": true
     }
   ]
