@@ -22,7 +22,7 @@ Projeto da **Global Solution 2026.2 — FIAP · Mobile Development & IoT**, dese
 
 A gravação mostra o aplicativo em execução: consulta de pontos, filtros, detalhes, categorias, favoritas e registro de relato, incluindo manutenção dos dados após recarregar a aplicação. Duração exata: **54,68 segundos**, dentro do limite de 3 minutos.
 
-**Plataforma da gravação: Expo web**, em viewport de 390 × 844. O vídeo não tem narração; o enunciado pede mostrar o app rodando e não exige explicação falada. Esta é a gravação escolhida para a entrega e não comprova execução no Android Emulator.
+**Plataforma da gravação: Expo web**, em viewport de 390 × 844, sem narração. A validação no Android Emulator está descrita no [guia de testes Android](docs/ANDROID-E-VIDEO.md) e permanece pendente.
 
 O [arquivo do vídeo](docs/evidencias/demo-web.webm) está versionado neste repositório. Se o GitHub não exibir um player, use o link acima ou baixe o arquivo e abra-o em um navegador compatível com WebM, como Chrome ou Firefox.
 
@@ -211,8 +211,6 @@ npm run build:web
 ```
 
 **Resultados registrados:** 8 testes de domínio/SQLite e 6 testes de navegador aprovados, além de lint, TypeScript e exportação dos bundles web/Android/iOS. A exportação não gera APK/IPA nem comprova execução nativa. Consulte o [relatório de validação](docs/VALIDACAO.md) e o [resultado dos testes web](docs/evidencias/testes-web.json).
-
-O uso de IA no desenvolvimento está documentado em [prompts.md](prompts.md).
 
 ## Checklist de entrega
 
