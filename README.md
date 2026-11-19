@@ -20,7 +20,7 @@ Projeto da **Global Solution 2026.2 — FIAP · Mobile Development & IoT**, dese
 
 **[Assistir ao vídeo do AlertaSP no YouTube — 55 segundos](https://www.youtube.com/shorts/xwy6e_qB4Qw)**
 
-A gravação mostra o aplicativo em execução: consulta de pontos, filtros, detalhes, categorias, favoritas e registro de relato, incluindo manutenção dos dados após recarregar a aplicação. Duração exata: **54,68 segundos**, dentro do limite de 3 minutos.
+A gravação mostra o aplicativo em execução: consulta de pontos, filtros, detalhes, categorias, favoritas e registro de relato, incluindo manutenção dos dados após recarregar a aplicação.
 
 **Plataforma da gravação: Expo web**, em viewport de 390 × 844, sem narração. A validação no Android Emulator está descrita no [guia de testes Android](docs/ANDROID-E-VIDEO.md) e permanece pendente.
 
@@ -212,13 +212,3 @@ npm run build:web
 
 **Resultados registrados:** 8 testes de domínio/SQLite e 6 testes de navegador aprovados, além de lint, TypeScript e exportação dos bundles web/Android/iOS. A exportação não gera APK/IPA nem comprova execução nativa. Consulte o [relatório de validação](docs/VALIDACAO.md) e o [resultado dos testes web](docs/evidencias/testes-web.json).
 
-## Checklist de entrega
-
-- [x] Código organizado no GitHub, com React Native, TypeScript, Expo e Expo Router.
-- [x] Consumo de mock documentado e persistência SQLite implementados.
-- [x] README com Ficha CitizenTech, integrantes, instruções e prints.
-- [x] Testes automatizados e limites da validação documentados.
-- [ ] Executar o [checklist Android](docs/ANDROID-E-VIDEO.md) e registrar os resultados reais, incluindo persistência após encerramento e acessibilidade.
-- [x] Vídeo de 54,68 segundos disponível na seção [Vídeo de apresentação](#vídeo-de-apresentação), com plataforma identificada.
-- [x] Repositório e vídeo acessíveis publicamente, verificados sem autenticação.
-- [ ] Um integrante enviar o link do repositório no **Teams até 19/11/2026 às 23h55, horário de São Paulo**.
