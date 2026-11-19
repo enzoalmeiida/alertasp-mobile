@@ -18,13 +18,13 @@ Projeto da **Global Solution 2026.2 — FIAP · Mobile Development & IoT**, dese
 
 ## Vídeo de apresentação
 
-**Link do vídeo final (até 3 minutos): a equipe adicionará aqui após a gravação.**
+**[Assistir/baixar o vídeo do AlertaSP — 55 segundos](https://github.com/enzoalmeiida/alertasp-mobile/raw/refs/heads/main/docs/evidencias/demo-web.webm)**
 
-<!-- Substitua a linha acima por: [Assistir à apresentação do AlertaSP](URL_DO_VIDEO) -->
+A gravação mostra o aplicativo em execução: consulta de pontos, filtros, detalhes, categorias, favoritas e registro de relato, incluindo manutenção dos dados após recarregar a aplicação. Duração exata: **54,68 segundos**, dentro do limite de 3 minutos.
 
-O [roteiro de 2min50s](docs/ANDROID-E-VIDEO.md#roteiro-de-vídeo-final--2min50s) orienta a demonstração da jornada no Android Emulator, incluindo consulta, fonte dos dados, favoritas, relato e persistência após encerrar e reabrir o app. Confira se o avaliador consegue abrir o link sem solicitar acesso.
+**Plataforma da gravação: Expo web**, em viewport de 390 × 844. O vídeo não tem narração; o enunciado pede mostrar o app rodando e não exige explicação falada. Esta é a gravação escolhida para a entrega e não comprova execução no Android Emulator.
 
-A [gravação complementar em Expo web](docs/evidencias/demo-web.webm) já está disponível no repositório. É uma captura automatizada, sem narração; não corresponde ao vídeo final da equipe nem comprova execução no Android.
+O [arquivo do vídeo](docs/evidencias/demo-web.webm) está versionado neste repositório. Se o GitHub não exibir um player, use o link acima ou baixe o arquivo e abra-o em um navegador compatível com WebM, como Chrome ou Firefox.
 
 ## Ficha CitizenTech
 
@@ -173,7 +173,7 @@ Referência: página 34 do enunciado **GS CitizenTech — 3ES Fev — FIAP 2026*
 | Banco de dados | Inserção, consulta e exclusão em SQLite; manutenção após reabertura | Testes SQLite e persistência web; roteiro para repetir no Android |
 | Acessibilidade | Rótulos, texto/ícone/cor, alvos de toque e mensagens claras | Verificações axe e tela estreita; checklist Android |
 | Aderência ao problema | Consulta por via/região com fonte, status e atualização; favoritas e relatos | Ficha CitizenTech e jornada implementada |
-| Documentação | Ficha, execução, arquitetura, prints e roteiro de apresentação | Este README, documentos vinculados e campo reservado ao vídeo final |
+| Documentação | Ficha, execução, arquitetura, prints e roteiro de apresentação | Este README, documentos vinculados e vídeo da aplicação em execução |
 
 ## Organização do código e testes
 
@@ -221,6 +221,6 @@ O uso de IA no desenvolvimento está documentado em [prompts.md](prompts.md).
 - [x] README com Ficha CitizenTech, integrantes, instruções e prints.
 - [x] Testes automatizados e limites da validação documentados.
 - [ ] Executar o [checklist Android](docs/ANDROID-E-VIDEO.md) e registrar os resultados reais, incluindo persistência após encerramento e acessibilidade.
-- [ ] Adicionar o link do vídeo final de até 3 minutos na seção [Vídeo de apresentação](#vídeo-de-apresentação).
-- [ ] Conferir o acesso do avaliador ao repositório e ao vídeo.
+- [x] Vídeo de 54,68 segundos disponível na seção [Vídeo de apresentação](#vídeo-de-apresentação), com plataforma identificada.
+- [x] Repositório e vídeo acessíveis publicamente, verificados sem autenticação.
 - [ ] Um integrante enviar o link do repositório no **Teams até 19/11/2026 às 23h55, horário de São Paulo**.

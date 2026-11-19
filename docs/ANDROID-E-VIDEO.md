@@ -1,6 +1,6 @@
 # Validação manual no Android e roteiro de vídeo
 
-**Status: execução no Android Emulator pendente.** Esta máquina cloud não fornece SDK, AVD ou KVM. Os testes e capturas web são evidências complementares, não equivalentes a executar o app no Android. Não marque itens abaixo sem executá-los.
+**Status: execução no Android Emulator pendente.** Esta máquina cloud não fornece SDK, AVD ou KVM. O vídeo escolhido para a entrega e os prints foram gravados em Expo web; não equivalem a executar o app no Android. Não marque itens abaixo sem executá-los.
 
 ## Preparar o computador da equipe
 
@@ -34,7 +34,7 @@ Registre computador/OS, versão Android/API, modelo AVD, versão Expo Go/build, 
 
 Para provar persistência, **não** apague os dados nem desinstale. Em Expo Go, encerre-o por Configurações → Apps → Expo Go → Forçar parada (ou `adb shell am force-stop host.exp.exponent`) e reabra o mesmo projeto. Fast Refresh sozinho não demonstra persistência após encerramento. Desinstalar/limpar dados apaga o banco local por definição.
 
-## Roteiro de vídeo final — 2min50s
+## Roteiro opcional de vídeo Android — 2min50s
 
 | Tempo | Mostrar | Explicar com suas palavras |
 |---|---|---|
@@ -48,7 +48,7 @@ Para provar persistência, **não** apague os dados nem desinstale. Em Expo Go, 
 
 Grave o emulador pelo recurso de gravação do Android Studio ou OBS. Como alternativa, `adb shell screenrecord --time-limit 170 /sdcard/alertasp-demo.mp4`, execute a jornada e depois `adb pull /sdcard/alertasp-demo.mp4`. Confira duração, legibilidade e ausência de informações pessoais. Se usar Expo Go, não deixe projetos privados ou notificações pessoais visíveis.
 
-O arquivo `docs/evidencias/demo-web.webm`, quando gerado pelo script do repositório, é uma demonstração complementar de **Expo web**. Não o renomeie como captura Android. Para a entrega final, prefira substituir/complementar o link no README por uma gravação real no Android de até 3 minutos, conforme solicitado à equipe. Teste o acesso do professor ao link.
+A equipe escolheu `docs/evidencias/demo-web.webm` como vídeo da entrega: **54,68 segundos em Expo web, sem narração**. O enunciado da página 34 exige vídeo de até 3 minutos com o app rodando, sem exigir fala ou plataforma de gravação específica. Não há nova gravação pendente. O roteiro acima é opcional para uma apresentação adicional no Android; a validação nativa do checklist continua pendente. Não identifique a gravação web como captura Android.
 
 ## Antes de enviar
 

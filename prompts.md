@@ -28,3 +28,7 @@ Revisão humana necessária: cada integrante deve executar o app, ler os módulo
 ## Correção após revisão
 
 Pedido humano: “arrume todos os problemas que precisam ser feitos, caso precise de mim avise”. A equipe confirmou que a página 34 mostrada é o único enunciado disponível. Foram corrigidos consulta local durante falha do mock e rótulo/estado acessível do filtro, com testes de regressão. A validação Android permanece separada.
+
+## Preparação da entrega e revisão final
+
+Pedido humano: “então deixe o video q vc fez e deixe o readme pronto para entregar, após isso, faça um check no projeto todo para ver se está de acordo com o que foi pedido e etc”. O vídeo existente em Expo web foi escolhido para a entrega, com plataforma e duração identificadas. Foram revisados os seis critérios e repetidas as verificações disponíveis; a execução Android não é inferida de testes web nem de bundles exportados.

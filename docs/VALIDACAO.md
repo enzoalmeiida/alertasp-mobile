@@ -34,13 +34,13 @@ Durante a validação foi corrigido um indicador de carregamento sem nome acess�
 | Banco | SQLite real e persistência demonstrada nos caminhos testados | Repetir encerramento/reabertura no Android; o enunciado não exige banco remoto |
 | Acessibilidade | Rótulos, contraste verificado, alvos, mensagens e scanner web | TalkBack e fonte/tamanho de exibição ampliados no Android |
 | Aderência ao problema | Consulta manual por via/região com informação contextualizada | Pesquisa com cidadãos, recorte territorial e indicador ainda não medidos |
-| Documentação | Ficha, nomes/RMs, fontes, arquitetura, prints, vídeo, prompts e roteiro | Conferir acesso do avaliador aos links, acrescentar evidências Android e enviar no Teams |
+| Documentação | Ficha, nomes/RMs, fontes, arquitetura, prints, vídeo de 54,68s e prompts; links públicos verificados | Registrar validação Android e enviar o repositório no Teams |
 
 **Não foi atribuída nota nem inventado peso.** A equipe confirmou que a página 34 é o único enunciado disponível. O texto não informa pesos individuais nem exige modalidade remota de banco. Mapa, notificações push, API SOA e IoT real não foram implementados. A lista pesquisável e o mock são as decisões deste MVP; não são tratados como requisitos ausentes da entrega descrita nesse enunciado.
 
 ## Próxima execução humana
 
-Siga [ANDROID-E-VIDEO.md](ANDROID-E-VIDEO.md). Preencha modelo/API do emulador, versão Expo Go/build, responsável, commit testado e resultado de cada passo. Não marque como aprovado apenas porque o bundle foi gerado. O vídeo web é complementar; para demonstrar a preferência da equipe, grave também a jornada real no Android em até 3 minutos.
+Siga [ANDROID-E-VIDEO.md](ANDROID-E-VIDEO.md). Preencha modelo/API do emulador, versão Expo Go/build, responsável, commit testado e resultado de cada passo. Não marque como aprovado apenas porque o bundle foi gerado. O vídeo web de 54,68 segundos foi escolhido pela equipe para a entrega e está vinculado no README. Não há nova gravação pendente; a execução nativa e os testes manuais Android permanecem pendentes.
 
 O envio no Teams é responsabilidade de um integrante, até 19/11/2026 às 23h55, horário de São Paulo. Nenhum envio ao Teams foi realizado por esta automação.
 
@@ -49,3 +49,16 @@ O envio no Teams é responsabilidade de um integrante, até 19/11/2026 às 23h55
 - A tela Pontos mantém a consulta dos relatos locais durante carregamento, erro e nova tentativa da fonte mock. A interface identifica consulta parcial e distingue ausência de relatos locais de indisponibilidade da base.
 - O filtro de região informa o valor selecionado no nome acessível e expõe seu estado aberto/fechado na web e no modelo de acessibilidade nativo.
 - Dois testes de regressão verificam esses comportamentos, inclusive busca e abertura de um relato salvo durante falha da fonte. Isso não substitui a conferência com TalkBack no Android.
+
+## Conferência final da entrega — 19/11/2026
+
+Referência conferida novamente: página 34 do PDF fornecido. Revisados código das telas, componentes, estado, serviço de dados, domínio, repositório SQLite, configuração Expo/Router e documentação. O código da aplicação corresponde ao commit `ca06a05`; as alterações desta revisão são de documentação e atualização das evidências.
+
+- Lint e TypeScript executados novamente, sem erros.
+- 8 testes de domínio/SQLite e 6 testes web aprovados, sem falhas, testes ignorados ou resultados instáveis.
+- Exportação de web, Android e iOS concluída. A geração de bundles não equivale a executar um app nativo.
+- Vídeo existente escolhido para a entrega: WebM/VP9, 390 × 844, 54,68 segundos, sem narração. Arquivo decodificado integralmente sem erros; quadros inspecionados confirmam a gravação do app. A página 34 não exige fala nem uma plataforma específica para a gravação.
+- Repositório e link do vídeo responderam HTTP 200 em acesso sem autenticação. Links locais e imagens da documentação conferidos.
+- Não foram identificadas falhas bloqueadoras nos fluxos exercitados. Mock e SQLite local atendem às modalidades permitidas pelo texto disponível. A revisão não atribui nota nem garante avaliação máxima.
+
+**Pendências reais:** execução e acessibilidade nativas no Android Emulator (incluindo persistência após forçar parada), revisão da equipe e envio no Teams. O ambiente desta revisão não dispõe de Android SDK/ADB/emulador; por isso, esses resultados não foram declarados como aprovados. Pesquisa com cidadãos e medição do indicador continuam propostas, sem resultados alegados. Não há nova gravação de vídeo pendente.
