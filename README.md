@@ -18,13 +18,13 @@ Projeto da **Global Solution 2026.2 — FIAP · Mobile Development & IoT**, dese
 
 ## Vídeo de apresentação
 
-**[Assistir/baixar o vídeo do AlertaSP — 55 segundos](https://github.com/enzoalmeiida/alertasp-mobile/raw/refs/heads/main/docs/evidencias/demo-web.webm)**
+**[Assistir ao vídeo do AlertaSP no YouTube — 55 segundos](https://www.youtube.com/shorts/xwy6e_qB4Qw)**
 
 A gravação mostra o aplicativo em execução: consulta de pontos, filtros, detalhes, categorias, favoritas e registro de relato, incluindo manutenção dos dados após recarregar a aplicação. Duração exata: **54,68 segundos**, dentro do limite de 3 minutos.
 
 **Plataforma da gravação: Expo web**, em viewport de 390 × 844, sem narração. A validação no Android Emulator está descrita no [guia de testes Android](docs/ANDROID-E-VIDEO.md) e permanece pendente.
 
-O [arquivo do vídeo](docs/evidencias/demo-web.webm) está versionado neste repositório. Se o GitHub não exibir um player, use o link acima ou baixe o arquivo e abra-o em um navegador compatível com WebM, como Chrome ou Firefox.
+Uma [cópia do vídeo para download](https://github.com/enzoalmeiida/alertasp-mobile/raw/refs/heads/main/docs/evidencias/demo-web.webm) também está disponível neste repositório, em formato WebM.
 
 ## Ficha CitizenTech
 
